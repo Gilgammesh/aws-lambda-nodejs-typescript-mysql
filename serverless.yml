@@ -29,35 +29,35 @@ custom:
 
 functions:
   getUsuarios:
-    handler: src/handlers/usuarios/list.default
+    handler: src/handlers/usuario.list
     events:
       - http:
           path: usuarios
           method: get
           cors: true
   createUsuario:
-    handler: src/handlers/usuarios/create.default
+    handler: src/handlers/usuario.create
     events:
       - http:
           path: usuarios
           method: post
           cors: true
   getUsuario:
-    handler: src/handlers/usuarios/get.default
+    handler: src/handlers/usuario.get
     events:
       - http:
           path: usuarios/{id}
           method: get
           cors: true
   updateUsuario:
-    handler: src/handlers/usuarios/update.default
+    handler: src/handlers/usuario.update
     events:
       - http:
           path: usuarios/{id}
           method: put
           cors: true
   removeUsuario:
-    handler: src/handlers/usuarios/remove.default
+    handler: src/handlers/usuario.remove
     events:
       - http:
           path: usuarios/{id}
