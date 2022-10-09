@@ -1,0 +1,65 @@
+service: aws-lambda-nodejs-typescript-mysql
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  vpc:
+    securityGroupIds:
+      - sg-xxxxxxxxxxxxxx
+    subnetIds:
+      - subnet-xxxxxxxxxxxxxx1
+      - subnet-xxxxxxxxxxxxxx2
+      - subnet-xxxxxxxxxxxxxx3
+      - subnet-xxxxxxxxxxxxxx4
+      - subnet-xxxxxxxxxxxxxx5
+      - subnet-xxxxxxxxxxxxxx6
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+  - serverless-offline
+
+custom:
+  prune:
+    automatic: true
+    number: 1
+
+functions:
+  getUsuarios:
+    handler: src/handlers/usuarios/list.default
+    events:
+      - http:
+          path: usuarios
+          method: get
+          cors: true
+  createUsuario:
+    handler: src/handlers/usuarios/create.default
+    events:
+      - http:
+          path: usuarios
+          method: post
+          cors: true
+  getUsuario:
+    handler: src/handlers/usuarios/get.default
+    events:
+      - http:
+          path: usuarios/{id}
+          method: get
+          cors: true
+  updateUsuario:
+    handler: src/handlers/usuarios/update.default
+    events:
+      - http:
+          path: usuarios/{id}
+          method: put
+          cors: true
+  removeUsuario:
+    handler: src/handlers/usuarios/remove.default
+    events:
+      - http:
+          path: usuarios/{id}
+          method: delete
+          cors: true

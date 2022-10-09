@@ -1,0 +1,28 @@
+{
+  "name": "aws-lambda-nodejs-typescript-mysql",
+  "version": "1.0.0",
+  "description": "REST API AWS Lambda with Nodejs, Typescript and MySQL",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "local": "serverless offline --stage dev",
+    "deploy": "serverless deploy --stage prod"
+  },
+  "author": "Carlos Santander",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.106",
+    "@types/mysql": "^2.15.21",
+    "@types/node": "^18.8.3",
+    "serverless-dotenv-plugin": "^4.0.2",
+    "serverless-offline": "^11.0.3",
+    "serverless-plugin-typescript": "^2.1.4",
+    "serverless-prune-plugin": "^2.0.1",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^4.8.4"
+  }
+}
